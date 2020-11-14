@@ -1,0 +1,14 @@
+{
+  "name": "palindromo",
+  "version": "1.0.0",
+  "description": "CS class, palindromo",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Lipz",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^10.1.5"
+  }
+}

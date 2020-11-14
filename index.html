@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Palindromo!</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:900|Work+Sans:300" rel="stylesheet">
+    
+    <style>
+        input[type=text] {
+            width: 100%;
+            height: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1.5px solid #ccc;
+            border-radius: 5px;
+            -webkit-transition: 0.2s;
+            transition: 0.2s;
+            outline: none;
+        }
+
+        input[type=text]:hover {
+            border: 2.5px solid rgb(217, 96, 241);
+        }
+
+        #palindromo-submit {
+            width: 100%;
+            height: 40px;
+            border-radius: 4px;
+            font-family: sans-serif;
+            color:#2e86df;
+            background-color: white;
+            text-decoration: none;
+            border: 2px solid #2e86df;
+            -webkit-transition: 0.2s;
+            transition: 0.2s;
+            cursor:pointer;
+        }
+
+        #palindromo-submit:hover {
+            color:white;
+            background-color: #2e86df;
+        }
+
+        #palindromo-result {
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>  
+    <form>
+        <input id="palindromo-text" type="text" placeholder="Insert the person here!"></input>
+        <button id="palindromo-submit" type="submit">Check!</button>
+    </form>
+
+    <h1 id="palindromo-result"></h1>
+
+    <script>
+
+        function reverseString(string) {
+            var stringArray = string.split("");
+            const reversedString = stringArray.reverse().join("");
+
+            return reversedString
+        }
+
+        function random(min, max)
+        {
+            return (Math.random() * (max - min)) + min;
+        }
+
+        document.querySelector("form").addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const normalWord = document.getElementById("palindromo-text").value
+
+            if (normalWord == "") {
+                document.getElementById("palindromo-result").innerHTML = "Invalid!";
+                console.log("PEIS")
+                return
+            } 
+
+            const gayState = Math.round(random(0, 1));
+            const isGay = gayState == 0 ? " is gay!" : " is not gay";
+
+            document.getElementById("palindromo-result").innerHTML = normalWord + isGay;
+        });
+    </script>
+
+    
+</body>
+</html>
