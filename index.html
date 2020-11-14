@@ -19,7 +19,7 @@
         }
 
         input[type=text]:hover {
-            border: 2.5px solid rgb(217, 96, 241);
+            border: 2.5px solid #555;
         }
 
         #palindromo-submit {
@@ -48,24 +48,18 @@
 </head>
 <body>  
     <form>
-        <input id="palindromo-text" type="text" placeholder="Insert the person here!"></input>
-        <button id="palindromo-submit" type="submit">Check!</button>
+        <input id="palindromo-text" type="text" placeholder="Coloque o palindromo aqui!"></input>
+        <button id="palindromo-submit" type="submit">Verficar!</button>
     </form>
 
-    <h1 id="palindromo-result"></h1>
+    <h1 id="palindromo-result"> Resultado: </h1>
 
     <script>
-
         function reverseString(string) {
             var stringArray = string.split("");
             const reversedString = stringArray.reverse().join("");
 
             return reversedString
-        }
-
-        function random(min, max)
-        {
-            return (Math.random() * (max - min)) + min;
         }
 
         document.querySelector("form").addEventListener("submit", (event) => {
@@ -74,15 +68,15 @@
             const normalWord = document.getElementById("palindromo-text").value
 
             if (normalWord == "") {
-                document.getElementById("palindromo-result").innerHTML = "Invalid!";
-                console.log("PEIS")
+                document.getElementById("palindromo-result").innerHTML = "Invalido!";
+
                 return
             } 
 
-            const gayState = Math.round(random(0, 1));
-            const isGay = gayState == 0 ? " is gay!" : " is not gay";
+            const palindromoWord = reverseString(normalWord);
+            const isAPalindromo = palindromoWord == normalWord ? true : false
 
-            document.getElementById("palindromo-result").innerHTML = normalWord + isGay;
+            document.getElementById("palindromo-result").innerHTML = "Resultado: " + isAPalindromo;
         });
     </script>
 
